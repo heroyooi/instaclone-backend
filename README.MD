@@ -62,6 +62,40 @@ npx prisma init
 - [postgresql 다운로드](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 - [pgAdmin4 다운로드](https://www.pgadmin.org/download/pgadmin-4-windows)
 
+- pgAdmin 4 설치 이후 프로그램 실행해서 instaclone 데이터베이스를 만든다.(Owner: postgres)
+- .env 파일에 아래와 같이 수정
+
+```env
+DATABASE_URL="postgresql://postgres:qwer1234@localhost:5432/instaclone?schema=public"
+```
+
+## 3.5 Prisma Migrate
+
+- prisma prettier 적용을 위한 설정
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+```command
+npx prisma migrate dev
+```
+
+- [Developing with Prisma Migrate](https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate)
+
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
