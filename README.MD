@@ -73,7 +73,7 @@ DATABASE_URL="postgresql://postgres:qwer1234@localhost:5432/instaclone?schema=pu
 
 - prisma prettier 적용을 위한 설정
 
-```json
+```js
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": null,
@@ -96,7 +96,135 @@ npx prisma migrate dev
 
 - [Developing with Prisma Migrate](https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate)
 
+## 3.6 Prisma Client
+
+- Type Definitions가 Prisma와 GraphQL로 작업할 때 type definitions와 schema를 일치시켜야 한다.
+
+- server.js
+
+```js
+const typeDefs = gql`
+  type Movie {
+    id: Int!
+    title: String!
+    year: Int!
+    genre: String
+    createdAt: String!
+    updatedAt: String!
+  }
+`;
+```
+
+- schema.prisma
+
+```prisma
+model Movie {
+  id        Int      @id @default(autoincrement())
+  title     String
+  year      Int
+  genre     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+```
+
+## 3.7 Prisma Client part Two
+
+```js
+const client = new PrismaClient();
+
+const typeDefs = gql`
+  type Movie {
+    id: Int!
+    title: String!
+    year: Int!
+    genre: String
+    createdAt: String!
+    updatedAt: String!
+  }
+  type Query {
+    movies: [Movie]
+    movie(id: Int!): Movie
+  }
+  type Mutation {
+    createMovie(title: String!, year: Int!, genre: String): Movie
+    deleteMovie(id: Int!): Movie
+    updateMovie(id: Int!, year: Int!): Movie
+  }
+`;
+
+const resolvers = {
+  Query: {
+    movies: () => client.movie.findMany(),
+    movie: (_, { id }) => client.movie.findUnique({ where: { id } }),
+  },
+  Mutation: {
+    createMovie: (_, { title, year, genre }) =>
+      client.movie.create({
+        data: {
+          title,
+          year,
+          genre,
+        },
+      }),
+    deleteMovie: (_, { id }) => client.movie.delete({ where: { id } }),
+    updateMovie: (_, { id, year }) =>
+      client.movie.update({ where: { id }, data: { year } }),
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server
+  .listen()
+  .then(() => console.log("Server is running on http://localhost:4000"));
+```
+
+- prisma client를 통해 CRUD
+
+- Playground에서는 다음과 같이 실행
+
+```graphql
+mutation {
+  createMovie(title: "Nick is back", year: 2000) {
+    id
+  }
+}
+
+{
+  movie(id: 2) {
+    title
+    year
+    updatedAt
+    createdAt
+  }
+}
+
+mutation {
+  updateMovie(id: 2, year: 1967) {
+    id
+  }
+}
+```
+
+## 3.8 Prisma Studio
+
+```command
+npx prisma studio
+```
+
+## 3.10 Architecture part Two
+
+```command
+npm i graphql-tools@7.0.2
+```
+
+- [GraphQL Tools > Doc > Schema merging](https://www.graphql-tools.com/docs/schema-merging#file-loading)
+
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌](https://nomadcoders.co/instaclone/lectures/2401)
+- [듣던 강좌 #3.11](https://nomadcoders.co/instaclone/lectures/2402)
