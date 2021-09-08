@@ -241,7 +241,98 @@ const PORT = process.env.PORT;
 server.listen(PORT);
 ```
 
+## 3.12 Recap
+
+- prisma 폴더 삭제 => movies 폴더 삭제 => instaclone 데이터베이스 DROP => 새로운 instaclone 데이터베이스 생성
+
+## 4.0 Create Account part One
+
+```command
+npx prisma init
+```
+
+- prisma 초기화
+
+```prisma
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String?
+  username  String   @unique
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+```
+
+- schema.prisma에 User 모델 작성
+
+```command
+npm run migrate
+```
+
+- 마이그레이션 이름 => user_model
+
+```js (users.typeDefs.js)
+export default gql`
+  type User {
+    id: String!
+    firstName: String!
+    lastName: String
+    username: String!
+    email: String!
+    createdAt: String!
+    updatedAt: String!
+  }
+`;
+```
+
+- prisma schema를 graphQL schema랑 동기화
+
+- schema를 수정했기에 다시 마이그레이션
+
+```command
+npm run migrate
+```
+
+- 마이그레이션 이름 => createdAt_updatedAt
+
+- \*prisma schema를 변경할 때마다 migrate를 해줘야한다.
+
+- Prisma schema, graphQL schema 동기화 했으니 mutations, queries 타입도 정의해준다.
+
+```js (users.typeDefs.js)
+export default gql`
+  type User {
+    id: String!
+    firstName: String!
+    lastName: String
+    username: String!
+    email: String!
+    createdAt: String!
+    updatedAt: String!
+  }
+  type Mutation {
+    createAccount(
+      firstName: String!
+      lastName: String
+      username: String!
+      email: String!
+      password: String!
+    ): User
+  }
+  type Query {
+    seeProfile(username: String): User
+  }
+`;
+```
+
+## 브랜치
+
+- BACKEND-SETUP : 3강까지 소스 (movies 테스트)
+
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #3.12](https://nomadcoders.co/instaclone/lectures/2399)
+- [듣던 강좌 #4.1](https://nomadcoders.co/instaclone/lectures/2426)
