@@ -328,6 +328,30 @@ export default gql`
 `;
 ```
 
+## 4.1 Create Account part Two
+
+- [Prisma Client > Filtering](https://www.prisma.io/docs/concepts/components/prisma-client/filtering-and-sorting#filter-conditions-and-operators)
+
+## 4.2 Create Account part Three
+
+```command
+npm i bcrypt
+```
+
+```graphql
+mutation {
+  createAccount(
+    firstName: "Nico"
+    lastName: "las"
+    email: "nico@las.com"
+    password: "123"
+    username: "nico"
+  ) {
+    username
+  }
+}
+```
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -335,4 +359,4 @@ export default gql`
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.1](https://nomadcoders.co/instaclone/lectures/2426)
+- [듣던 강좌 #4.3](https://nomadcoders.co/instaclone/lectures/2417)
