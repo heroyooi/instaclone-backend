@@ -224,7 +224,24 @@ npm i graphql-tools@7.0.2
 
 - [GraphQL Tools > Doc > Schema merging](https://www.graphql-tools.com/docs/schema-merging#file-loading)
 
+## 3.11 Dotenv
+
+```command
+npm i dotenv
+```
+
+```env
+PORT=4000
+```
+
+```js
+require("dotenv").config();
+
+const PORT = process.env.PORT;
+server.listen(PORT);
+```
+
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #3.11](https://nomadcoders.co/instaclone/lectures/2402)
+- [듣던 강좌 #3.12](https://nomadcoders.co/instaclone/lectures/2399)
