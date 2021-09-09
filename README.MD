@@ -352,6 +352,21 @@ mutation {
 }
 ```
 
+## 4.4 login
+
+```command
+npm i jsonwebtoken
+```
+
+- token은 서버가 프론트엔드에 연결되어 있지 않거나 따로 떨어진 경우 사용한다.
+- cookie와 session은 서버와 프론트엔드가 같은 곳에 있을 때 사용하기 적합하다.
+
+## 4.5 login part Two and Refactor
+
+- 토큰의 목적은 토큰 안에 정보를 넣고, 그 토큰이 우리가 싸인했던 토큰인지 확인하는 것이다.
+- 여기엔 비밀 정보를 넣으면 안된다.
+- 토큰의 다른 목적은 다른 사람이 변경하지 못하게 하는 것이다.
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -359,4 +374,4 @@ mutation {
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.3](https://nomadcoders.co/instaclone/lectures/2417)
+- [듣던 강좌 #4.11](https://nomadcoders.co/instaclone/lectures/2424)
