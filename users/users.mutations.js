@@ -19,7 +19,9 @@ export default {
           ],
         },
       });
-      console.log(existingUser);
+      if (existingUser) {
+        throw new Error('This username/password is already taken.')
+      }
       const uglyPassword = await bcrypt.hash(password, 10);
       return client.user.create({
         data: {
