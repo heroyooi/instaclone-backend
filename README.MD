@@ -374,4 +374,4 @@ npm i jsonwebtoken
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.12 - 04:22](https://nomadcoders.co/instaclone/lectures/2415)
+- [듣던 강좌 #4.14](https://nomadcoders.co/instaclone/lectures/2410)
