@@ -367,6 +367,11 @@ npm i jsonwebtoken
 - 여기엔 비밀 정보를 넣으면 안된다.
 - 토큰의 다른 목적은 다른 사람이 변경하지 못하게 하는 것이다.
 
+## 4.14 File Upload part One
+
+- User 모델에 bio, avatar를 추가하고 마이그레이션한다.
+- 기존 graphql-tools를 사용하여 생성하던 스키마를 apollo server를 이용해 스키마를 생성할 수 있도록 한다. 그렇게해야 Upload 타입을 사용할 수 있다.
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -374,4 +379,4 @@ npm i jsonwebtoken
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.14](https://nomadcoders.co/instaclone/lectures/2410)
+- [듣던 강좌 #4.15](https://nomadcoders.co/instaclone/lectures/2425)
