@@ -372,6 +372,12 @@ npm i jsonwebtoken
 - User 모델에 bio, avatar를 추가하고 마이그레이션한다.
 - 기존 graphql-tools를 사용하여 생성하던 스키마를 apollo server를 이용해 스키마를 생성할 수 있도록 한다. 그렇게해야 Upload 타입을 사용할 수 있다.
 
+## 4.15 File Upload part Two
+
+- playground는 file upload를 할 수 없다. 그래서 graphQL 클라이언트를 사용한다.
+- [Altair](https://altair.sirmuel.design/#download)
+- chrome 확장 프로그램으로 설치해서 실행
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -379,4 +385,4 @@ npm i jsonwebtoken
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.15](https://nomadcoders.co/instaclone/lectures/2425)
+- [듣던 강좌 #4.16](https://nomadcoders.co/instaclone/lectures/2414)
