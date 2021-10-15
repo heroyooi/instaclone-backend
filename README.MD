@@ -378,6 +378,19 @@ npm i jsonwebtoken
 - [Altair](https://altair.sirmuel.design/#download)
 - chrome 확장 프로그램으로 설치해서 실행
 
+## 4.18 Ejecting from Apollo Server
+
+```command
+npm i express apollo-server-express@2.19
+```
+
+- Apollo Server는 할 수 있는게 제한적이다.
+- Rest API를 쓰는 경우 Express Server가 필요하다.
+
+```command
+npm i morgan
+```
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -385,4 +398,4 @@ npm i jsonwebtoken
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.16](https://nomadcoders.co/instaclone/lectures/2414)
+- [듣던 강좌 #4.20](https://nomadcoders.co/instaclone/lectures/2414)
