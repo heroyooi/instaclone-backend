@@ -398,4 +398,4 @@ npm i morgan
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.20](https://nomadcoders.co/instaclone/lectures/2414)
+- [듣던 강좌 #4.20](https://nomadcoders.co/instaclone/lectures/2412)
