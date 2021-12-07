@@ -391,6 +391,21 @@ npm i express apollo-server-express@2.19
 npm i morgan
 ```
 
+## 4.20 Followers part One
+
+- 팔로잉, 팔로워는 self-referencing relationship이다.
+
+```prisma
+model User {
+  followers User[]   @relation("FollowRelation", references: [id])
+  following User[]   @relation("FollowRelation", references: [id])
+}
+```
+
+```command
+npm run migrate
+```
+
 ## 브랜치
 
 - BACKEND-SETUP : 3강까지 소스 (movies 테스트)
@@ -398,4 +413,4 @@ npm i morgan
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.20](https://nomadcoders.co/instaclone/lectures/2412)
+- [듣던 강좌 #4.21](https://nomadcoders.co/instaclone/lectures/2434)
