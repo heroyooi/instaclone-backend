@@ -413,4 +413,4 @@ npm run migrate
 ## 참고 링크
 
 - [강좌 저장소](https://github.com/nomadcoders/instaclone-backend)
-- [듣던 강좌 #4.21](https://nomadcoders.co/instaclone/lectures/2434)
+- [듣던 강좌 #4.25](https://nomadcoders.co/instaclone/lectures/2430)
